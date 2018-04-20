@@ -1,6 +1,8 @@
 # OctoPrint-PanTilt
 
-**TODO:** Describe what your plugin does.
+Drive your step motors camera from Octoprint control tab
+
+Check AF340 thingiverse / https://www.thingiverse.com/thing:2869007
 
 ## Setup
 
@@ -9,9 +11,24 @@ or manually using this URL:
 
     https://github.com/Domo-Com/OctoPrint-PanTilt/archive/master.zip
 
-**TODO:** Describe how to install your plugin, if more needs to be done than just installing it via pip or through
-the plugin manager.
+## Handling
+
+Under Control Tab, move using arrows, or set pan tilt value from box.
+
+Home Button move back the camera to the initial pan/tilt value
+
+SetHome Button set the current Pan/tilt value as Home position 
 
 ## Configuration
 
-**TODO:** Describe your plugin's configuration options (if any).
+#### Pan settings
+    -   Initial Pan Value
+    -   Min Pan Value
+    -   Max Pan Value
+    -   Invert Pan Buttons
+#### Tilt settings
+    -   Initial Tilt Value
+    -   Min Tilt Value
+    -   Max Tilt Value
+    -   Invert Tilt Buttons
+
