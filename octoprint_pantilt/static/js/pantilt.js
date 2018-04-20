@@ -1,7 +1,7 @@
 /*
  * View model for OctoPrint-PanTilt
  *
- * Author: Marc Hannappel
+ * Author: AF340 Marc Hannappel
  * License: AGPLv3
  */
 $(function() {
@@ -40,13 +40,17 @@ $(function() {
             buttons.append(self.createButton("right"));
             buttons.append(self.createButton("up"));
             buttons.append(self.createButton("down"));
+			buttons.append(self.createButtonhome("home"));
             panel.append(buttons);
 
             var values = $("<div></div>");
             values.append(self.createInput("Pan", "panValue"));
             values.append(self.createInput("Tilt", "tiltValue"));
             values.append($("<button id='control-pantilt-set' class='btn pull-left' data-bind=\"loginState.isUser(), click: function() { $root.sendSetCommand(); }\">Set</button>"));
+			values.append($("<button id='control-pantilt-set' class='btn pull-left' data-bind=\"loginState.isUser(), click: function() { $root.sendSetHome(); }\">SetHome</button>"));
             panel.append(values);
+			
+			
 
             return panel;
         };
@@ -56,7 +60,13 @@ $(function() {
             button.append($("<i class='icon-arrow-" + command + "'></i>"));
             return button;
         };
-
+		
+		self.createButtonhome = function(command) {
+            var button = $("<button id='control-pantilt-" + command + "' class='btn box pull-left' data-bind=\"loginState.isUser(), click: function() { $root.sendCommand('" + command + "'); }\"></button>");
+            button.append($("<i class='icon-home'></i>"));
+            return button;
+        };
+		
         self.createInput = function(name, variable) {
             var div = $("<div class='pull-left' style='margin-right: 10px'></div>");
             div.append(document.createTextNode(name + ": "));
@@ -67,6 +77,9 @@ $(function() {
 
         self.sendSetCommand = function() {
             OctoPrint.simpleApiCommand("pantilt", "set", {panValue: self.panValue(), tiltValue: self.tiltValue()}).done(self.requestData);
+        };
+		self.sendSetHome = function() {
+            OctoPrint.simpleApiCommand("pantilt", "sethome", {panValue: self.panValue(), tiltValue: self.tiltValue()}).done(self.requestData);
         };
         self.sendCommand = function(command) {
             OctoPrint.simpleApiCommand("pantilt", command, {stepSize: self.stepSize()}).done(self.requestData);
