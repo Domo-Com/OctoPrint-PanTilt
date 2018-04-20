@@ -13,14 +13,18 @@ or manually using this URL:
 
 ## Handling
 
-Under Control Tab, move using arrows, or set pan tilt value from box.
+Under Control Tab, move motors using arrows, the step is taken from setting
+
+or set pan tilt value from text box (step is implicit).
 
 Home Button move back the camera to the initial pan/tilt value
 
 SetHome Button set the current Pan/tilt value as Home position 
 
 ## Configuration
-
+#### Step
+    - Step to move the camera from left,right,up and down direction
+    
 #### Pan settings
     -   Initial Pan Value
     -   Min Pan Value
