@@ -84,21 +84,9 @@ class PantiltPlugin(octoprint.plugin.SettingsPlugin,
 		self._logger.info(
                         "start motor pan: %s tilt %s",panValue, tiltValue)
 		
-		
-		# command = "http://192.168.0.100:8085/tilt/+"
-		# try:
-			# json_commands = urllib2.urlopen(command)
-			# self._logger.info("Performing command: {}".format(command))
-		# except IOError, e:
-			# print("Invalid")
-			# self._logger.info("error: {}".format(str(e)))
-	
 		script = os.path.dirname(os.path.realpath(__file__)) + "/stepmotor.py "
 		
 		try:
-			# we run this with shell=True since we have to trust whatever
-			# our admin configured as command and since we want to allow
-			# shell-alike handling here...
 			relpan=panValue-self.pan_
 			reltilt=tiltValue-self.tilt_
 
@@ -108,20 +96,6 @@ class PantiltPlugin(octoprint.plugin.SettingsPlugin,
 			
 			self.pan_=panValue
 			self.tilt_=tiltValue
-			
-			# script="sudo python ./stepmotor.py"
-			# p = sarge.run(sarge.shell_format('{0} -r 8 -a {1} -b {2}', script, panValue, tiltValue),
-			              # stdout=sarge.Capture(),
-			              # stderr=sarge.Capture(),
-			              # shell=True,
-			              # async=False)
-			# if p.returncode != 0:
-				# returncode = p.returncode
-				# stdout_text = p.stdout.text
-				# stderr_text = p.stderr.text
-
-				# error = "Command failed with return code {}:\nSTDOUT: {}\nSTDERR: {}".format(returncode, stdout_text, stderr_text)
-				# self._logger.warn(error)
 		except Exception, e:
 			error = "Command failed: {}".format(str(e))
 			self._logger.warn(error)
@@ -208,7 +182,7 @@ class PantiltPlugin(octoprint.plugin.SettingsPlugin,
 
 				# version check: github repository
 				type="github_release",
-				user="Domo-COm",
+				user="Domo-Com",
 				repo="OctoPrint-PanTilt",
 				current=self._plugin_version,
 
