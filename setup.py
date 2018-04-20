@@ -14,20 +14,20 @@ plugin_package = "octoprint_pantilt"
 plugin_name = "OctoPrint-PanTilt"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
-plugin_version = "0.1.0"
+plugin_version = "1.0.0"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
 plugin_description = """Enables you to execute a program to pan/tilt your camera"""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
-plugin_author = "Marc Hannappel"
+plugin_author = "AF340"
 
 # The plugin's author's mail address.
-plugin_author_email = "salandora@gmail.com"
+plugin_author_email = "contact@domo-com.fr"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/Salandora/OctoPrint-PanTilt"
+plugin_url = "https://github.com/Domo-Com/OctoPrint-PanTilt"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"
